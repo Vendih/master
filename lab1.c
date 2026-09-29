@@ -72,7 +72,7 @@ void task5(double *arr){
     printf("5) Task 31: sqrt|sin(x)|/x-pi\n");
     printf("Input X: ");
     scanf("%lf", &x);
-    if (x == Pi)
+    if (fabs(x-pi) < EPS)
     {
         printf("No solution for x-pi = 0, division by zero is undefined.\n");
         return;
