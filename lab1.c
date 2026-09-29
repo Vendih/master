@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <math.h>
 
@@ -14,6 +13,7 @@ void task1(double *arr){
     if (fabs(sin(x)) < EPS)
     {
         printf("No solution for sin(x)=0, division by zero is undefined.\n");
+        *arr = NAN;
         return;
     }
     
@@ -22,6 +22,7 @@ void task1(double *arr){
     if (fabs(d * pow(x, 3) - f) < EPS)
     {
         printf("No solution for dx^3-f=0, division by zero is undefined. \n");
+        *arr = NAN;
         return;
     }
     
@@ -50,6 +51,7 @@ void task3(double *arr){
 
     if (fabs(sin(x)) < EPS ){
         printf("No solution for sin(x)=0, division by zero is undefined.\n");
+        *arr = NAN;
         return;
     }
     double y = (1 / sin(x)) + fabs(x - 3.0);
@@ -75,6 +77,7 @@ void task5(double *arr){
     if (fabs(x-pi) < EPS)
     {
         printf("No solution for x-pi = 0, division by zero is undefined.\n");
+        *arr = NAN;
         return;
     }
     double y = sqrt(fabs(sin(x))) / (x - Pi);
@@ -91,6 +94,16 @@ int main(){
     task3(&results[2]);
     task4(&results[3]);
     task5(&results[4]);
+    for (int i = 0; i < 5; i++)
+    {
+         int ii = i+1;
+        if (isnan(results[i]))
+        {
+            printf("Task%d no solution\n",ii);
+            continue;
+        }
+        printf("Task%d:%.4lf\n",ii,results[i]);
+    }
     //printf("Task1 = %.4lf\nTask2 = %.4lf\nTask3 = %.4lf\nTask4 = %.4lf\nTask5 = %.4lf\n", results[0], results[1], results[2], results[3], results[4]);
 
     return 0;
