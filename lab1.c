@@ -1,9 +1,9 @@
-#define _USE_MATH_DEFINES
+
 #include <stdio.h>
 #include <math.h>
 
 const double EPS = 1e-9;
-const double Pi = M_PI;
+const double Pi = 3.14159265358979323846;
 void task1(double *arr){
     double x, y, z, a, b, c, d, f;
     printf("1) Task 27: cos(x)^2/sin(x) - xyz + ax^2+bx+c/dx^3-f \n");
